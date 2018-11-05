@@ -1,4 +1,5 @@
-// --- Directions
+
+ // --- Directions
 // Check to see if two provided strings are anagrams of eachother.
 // One string is an anagram of another if it uses the same characters
 // in the same quantity. Only consider characters, not spaces
@@ -8,6 +9,70 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  let aCharMap = buildCharMap(stringA)
+  let bCharMap = buildCharMap(stringB)
+
+  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+    return false
+  }
+
+  for (let char in aCharMap) {
+    if (aCharMap[char] !== bCharMap[char] ) {
+      return false
+    }
+  }
+
+  return true
+}
+
+function buildCharMap(str) {
+  const charMap = {}
+
+  for (let char of str.replace(/[^\w]/g,'').toLowerCase()) {
+    charMap[char] = charMap[char] + 1 || 1
+  }
+
+  return charMap
+}
 
 module.exports = anagrams;
+
+// function anagrams(stringA, stringB) {
+//   let sortedA = stringA.replace(/[^\w]/g,'').toLowerCase().split('').sort().join('')
+//   let sortedB = stringB.replace(/[^\w]/g,'').toLowerCase().split('').sort().join('')
+//   return sortedA === sortedB
+// }
+
+// function anagrams(stringA, stringB) {
+//   const helper = (str) => str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
+//
+//   return helper(stringA) === helper(stringB)
+// }
+
+// function anagrams(stringA, stringB) {
+//   let aCharMap = buildCharMap(stringA)
+//   let bCharMap = buildCharMap(stringB)
+//
+//   if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+//     return false
+//   }
+//
+//   for (let char in aCharMap) {
+//     if (aCharMap[char] !== bCharMap[char] ) {
+//       return false
+//     }
+//   }
+//
+//   return true
+// }
+//
+// function buildCharMap(str) {
+//   const charMap = {}
+//
+//   for (let char of str.replace(/[^\w]/g,'').toLowerCase()) {
+//     charMap[char] = charMap[char] + 1 || 1
+//   }
+//
+//   return charMap
+// }
