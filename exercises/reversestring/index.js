@@ -7,13 +7,7 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
-  let reversed = ''
-
-  for (let character of str) {
-    reversed = character + reversed
-  }
-
-  return reversed
+  return str.split('').reduce((rev, char) => char + rev, '')
 }
 
 module.exports = reverse;
@@ -23,4 +17,14 @@ module.exports = reverse;
 //     .split('')
 //     .reverse()
 //     .join('')
+// }
+
+// function reverse(str) {
+//   let reversed = ''
+//
+//   for (let character of str) {
+//     reversed = character + reversed
+//   }
+//
+//   return reversed
 // }
