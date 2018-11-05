@@ -10,8 +10,8 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-  let sortedA = stringA.replace(/[^\w]/g,'').toLowerCase().split('').sort().join('')
-  let sortedB = stringB.replace(/[^\w]/g,'').toLowerCase().split('').sort().join('')
+  let sortedA = stringA.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
+  let sortedB = stringB.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
   return sortedA === sortedB
 }
 
